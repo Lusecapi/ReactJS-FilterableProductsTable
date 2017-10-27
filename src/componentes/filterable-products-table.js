@@ -9,10 +9,11 @@ class FilterableProductsTable extends React.Component {
   }
 
   render(){
+
     return (
-      <div>
+      <div className = 'filterable-products-table'>
         <Searchbar />
-        <ProductTable products = {this.props.products} categories = {['Sporting Goods', 'Electronics']} />
+        <ProductTable products = {this.props.products} />
       </div>
     );
   }

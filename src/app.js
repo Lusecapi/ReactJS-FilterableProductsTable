@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './app.css';
 import FilterableProductsTable from './componentes/filterable-products-table';
 
 const productList = [
@@ -18,7 +19,7 @@ class App extends React.Component {
 
   render(){
     return(
-      <div className = 'app'>
+      <div className = 'container app'>
         <FilterableProductsTable products = {productList} />
       </div>
     );

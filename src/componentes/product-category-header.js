@@ -9,7 +9,7 @@ class ProductCategoryHeader extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className = 'category-header'>
         <ControlLabel>{this.props.name}</ControlLabel>
       </div>
     );

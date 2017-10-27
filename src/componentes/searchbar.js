@@ -5,7 +5,9 @@ import
   form,
   FromGroup,
   FormControl,
-  Checkbox
+  Checkbox,
+  Col,
+  Button
 } from 'react-bootstrap';
 
 class Seacrhbar extends React.Component {
@@ -15,10 +17,15 @@ class Seacrhbar extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className = 'searchbar'>
         <form>
-          <FormControl type = 'text' placeholder = 'product name' />
-          <Checkbox>Only show products in stock</Checkbox>
+          <Col xs = {10}>
+            <FormControl type = 'text' placeholder = 'product name' />
+            <Checkbox>Only show products in stock</Checkbox>
+          </Col>
+          <Col xs = {2} md = {2} className = 'container'>
+            <Button bsStyle = 'primary'> Search </Button>
+          </Col>
         </form>
       </div>
     );

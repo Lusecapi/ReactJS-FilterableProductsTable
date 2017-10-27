@@ -2,6 +2,8 @@ import React from 'react';
 
 import {Col} from 'react-bootstrap';
 
+import './styles/product-row.css';
+
 class ProductRow extends React.Component {
   constructor(props) {
     super(props);
@@ -9,12 +11,12 @@ class ProductRow extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className = 'container-fluid product-row'>
         <Col xs = {6} md = {4}>
-          {this.props.product.name}
+          { this.props.product.stocked ? <p>{this.props.product.name}</p> : <p className = 'not-stocked'>{this.props.product.name}</p>}
         </Col>
         <Col xs = {6} md = {4}>
-          {this.props.product.price}
+          {this.props.product.stocked ? <p>{this.props.product.price}</p> : <p className = 'not-stocked'>{this.props.product.price}</p>}
         </Col>
       </div>
     );

@@ -15,23 +15,35 @@ class ProductTable extends React.Component {
   }
 
   render(){
+    let categories = [];
+    let rows = [];
+    this.props.products.map(product => {
+      if(!categories.includes(product.category)){
+        categories.push(product.category);
+      }
+    });
+
+    categories.map(category => {
+      rows.push(<ProductCategoryHeader name = {category} />);
+      this.props.products.map(product => {
+        if(product.category === category){
+          rows.push(<ProductRow product = {product} />);
+        }
+      });
+    });
+
     return (
-      <div>
-        <Col xs = {6} md = {4}>
-          <ControlLabel> Name </ControlLabel>
-        </Col>
-        <Col xs = {6} md = {4}>
-          <ControlLabel> Price </ControlLabel>
-        </Col>
+      <div className = 'container-fluid product-table'>
+        <div className = 'container-fluid columns'>
+          <Col xs = {6} md = {4}>
+            <ControlLabel> Name </ControlLabel>
+          </Col>
+          <Col xs = {6} md = {4}>
+            <ControlLabel> Price </ControlLabel>
+          </Col>
+        </div>
         {
-          this.props.categories.map(category => {
-            <ProductCategoryHeader name = {category} />
-                this.props.products.map( (product, category) => {
-                  if(product.category === category){
-                    <ProductRow product = {product} />
-                  }
-              })
-          })
+          rows
         }
       </div>
     );
