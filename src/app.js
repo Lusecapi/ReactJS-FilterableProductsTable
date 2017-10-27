@@ -20,6 +20,7 @@ class App extends React.Component {
   render(){
     return(
       <div className = 'container app'>
+        <h1> Filterable Products Table </h1>
         <FilterableProductsTable products = {productList} />
       </div>
     );

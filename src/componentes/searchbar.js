@@ -11,20 +11,17 @@ import
 } from 'react-bootstrap';
 
 class Seacrhbar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render(){
     return (
-      <div className = 'searchbar'>
-        <form>
+      <div className = 'container-fluid searchbar'>
+        <form className = 'container-fluid'>
           <Col xs = {10}>
-            <FormControl type = 'text' placeholder = 'product name' />
-            <Checkbox>Only show products in stock</Checkbox>
-          </Col>
-          <Col xs = {2} md = {2} className = 'container'>
-            <Button bsStyle = 'primary'> Search </Button>
+            <FormControl type = 'text' placeholder = 'product name' onChange = {this.props.onTextChange} />
+            <Checkbox onChange = {this.props.onCheckboxChange} >Only show products in stock</Checkbox>
           </Col>
         </form>
       </div>

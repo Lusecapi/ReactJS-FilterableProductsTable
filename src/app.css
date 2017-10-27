@@ -1,3 +1,13 @@
+* {
+  background-color: #c0ded9;
+}
+
 .app {
   border: 2px black solid;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  border-style: dotted;
 }

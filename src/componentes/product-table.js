@@ -23,14 +23,33 @@ class ProductTable extends React.Component {
       }
     });
 
-    categories.map(category => {
-      rows.push(<ProductCategoryHeader name = {category} />);
-      this.props.products.map(product => {
-        if(product.category === category){
-          rows.push(<ProductRow product = {product} />);
-        }
+    if(this.props.searchString === null){
+      categories.map(category => {
+        rows.push(<ProductCategoryHeader name = {category} />);
+        this.props.products.map(product => {
+          if(product.category === category){
+            rows.push(<ProductRow product = {product} />);
+          }
+        });
       });
-    });
+    }else {
+      categories.map(category => {
+        rows.push(<ProductCategoryHeader name = {category} />);
+        this.props.products.map(product => {
+          if(product.name.toLowerCase().indexOf(this.props.searchString) > -1){
+            if(product.category === category){
+              if(this.props.searchInStock){
+                if(product.stocked){
+                  rows.push(<ProductRow product = {product} />)
+                }
+              }else{
+                rows.push(<ProductRow product = {product} />)
+              }
+            }
+          }
+        });
+      });
+    }
 
     return (
       <div className = 'container-fluid product-table'>
