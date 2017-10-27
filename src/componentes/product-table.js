@@ -28,7 +28,14 @@ class ProductTable extends React.Component {
         rows.push(<ProductCategoryHeader name = {category} />);
         this.props.products.map(product => {
           if(product.category === category){
-            rows.push(<ProductRow product = {product} />);
+            if(this.props.searchInStock){
+              if(product.stocked){
+                rows.push(<ProductRow product = {product} />);
+              }
+            }
+            else {
+              rows.push(<ProductRow product = {product} />);
+            }
           }
         });
       });
